@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Locabem.Xamarin.ManutencaoBem">
+             x:Class="Locabem.Xamarin.ManutencaoBem"
+             BackgroundColor="{x:Static local:App.CorFundo}"
+             xmlns:local="clr-namespace:Locabem.Xamarin" Title="Manutenção de Bem" >
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Manutencao de bem"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="tbNome" VerticalOptions="Start" Placeholder="Nome" HorizontalOptions="Fill" />
+            <Entry x:Name="tbMarca" VerticalOptions="Start" Placeholder="Marca" HorizontalOptions="Fill" />
+            <StackLayout Orientation="Horizontal">
+            <Button x:Name="btGravar" Text="Gravar" VerticalOptions="CenterAndExpand" BackgroundColor="{x:Static local:App.CorBotao}" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked" />
+                <Button x:Name="btExcluir" Text="Excluir" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="{x:Static local:App.CorBotao}" Clicked="Button_Clicked" />
+            </StackLayout>
+
+            <Label x:Name="lbMensagem" IsVisible="False" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

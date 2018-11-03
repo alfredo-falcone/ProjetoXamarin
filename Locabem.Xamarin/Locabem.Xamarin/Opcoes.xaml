@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{x:Static local:App.CorFundo}"
+             xmlns:local="clr-namespace:Locabem.Xamarin" 
+             x:Class="Locabem.Xamarin.Opcoes">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+            <Label Text="Marca Obrigatória"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="StartAndExpand" />
+                <Switch x:Name="cbMarcaObrigatoria" HorizontalOptions="End"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Ir para a listagem após incluir um novo bem"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="StartAndExpand" />
+                <Switch x:Name="cbRedirecionarListagem" HorizontalOptions="End"/>
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Ir para a última tela utilizada ao reabrir"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="StartAndExpand" />
+                <Switch x:Name="cbRetomaUltimaTela" HorizontalOptions="End"/>
+
+            </StackLayout>
+            <Button x:Name="pbGravar" Text="Gravar" Clicked="pbGravar_Clicked" HorizontalOptions="CenterAndExpand"  BackgroundColor="{x:Static local:App.CorBotao}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

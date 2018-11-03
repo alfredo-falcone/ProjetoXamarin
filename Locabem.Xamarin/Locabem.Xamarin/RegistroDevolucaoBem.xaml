@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Locabem.Xamarin.RegistroAluguelBem">
+             x:Class="Locabem.Xamarin.RegistroDevolucaoBem">
     <ContentPage.Content>
         <StackLayout>
-           
             <Picker x:Name="cmbBens" VerticalOptions="Start" ItemDisplayBinding="{Binding Nome}" Title="Selecione o Bem"/>
-            <Button Text="Registrar Aluguel" VerticalOptions="Start" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+            <Button Text="Registrar Devolução" VerticalOptions="Start" HorizontalOptions="Center" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

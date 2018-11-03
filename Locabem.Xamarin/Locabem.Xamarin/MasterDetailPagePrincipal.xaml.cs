@@ -16,12 +16,14 @@ namespace Locabem.Xamarin
         {
             InitializeComponent();
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
-            if (Application.Current.Properties.ContainsKey("UltimaPagina") )
+            if (App.Current.Properties.ContainsKey("RetomaUltimaTela") 
+                && (bool)App.Current.Properties["RetomaUltimaTela"] 
+                && App.Current.Properties.ContainsKey("UltimaPagina"))
             {
-                string ultimaPagina = (string)Application.Current.Properties["UltimaPagina"];
-                if (!string.IsNullOrEmpty(ultimaPagina))
+                var ultimaPagina = App.Current.Properties["UltimaPagina"];
+                if (ultimaPagina != null)
                 {
-                    int idItem = int.Parse(ultimaPagina);
+                    int idItem = (int)ultimaPagina;
                     MasterDetailPagePrincipalMenuItem item = ((MasterDetailPagePrincipalMaster.MasterDetailPagePrincipalMasterViewModel)MasterPage.BindingContext).MenuItems[idItem];
                     var page = (Page)Activator.CreateInstance(item.TargetType);
                     page.Title = item.Title;
@@ -30,6 +32,7 @@ namespace Locabem.Xamarin
                     IsPresented = false;
                 }
             }
+
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -45,7 +48,7 @@ namespace Locabem.Xamarin
             IsPresented = false;
 
             MasterPage.ListView.SelectedItem = null;
-            Application.Current.Properties["UltimaPagina"] = item.Id;
+            App.Current.Properties["UltimaPagina"] = item.Id;
             App.Current.SavePropertiesAsync();
         }
     }

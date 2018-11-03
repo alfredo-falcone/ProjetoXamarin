@@ -39,8 +39,9 @@ namespace Locabem.Xamarin
                     new MasterDetailPagePrincipalMenuItem { Id = 0, Title = "Cadastrar Bem", TargetType=typeof(ManutencaoBem) },
                     new MasterDetailPagePrincipalMenuItem { Id = 1, Title = "Listar Bens", TargetType=typeof(ListagemBens) },
                     new MasterDetailPagePrincipalMenuItem { Id = 2, Title = "Registrar Aluguel", TargetType=typeof(RegistroAluguelBem) },
-                    new MasterDetailPagePrincipalMenuItem { Id = 3, Title = "Page 4" },
-                    new MasterDetailPagePrincipalMenuItem { Id = 4, Title = "Page 5" },
+                    new MasterDetailPagePrincipalMenuItem { Id = 3, Title = "Registrar Devolucao", TargetType=typeof(RegistroDevolucaoBem) },
+                    new MasterDetailPagePrincipalMenuItem { Id = 4, Title = "Opções", TargetType=typeof(Opcoes) },
+                    //new MasterDetailPagePrincipalMenuItem { Id = 4, Title = "Page 5" },
                 });
             }
             

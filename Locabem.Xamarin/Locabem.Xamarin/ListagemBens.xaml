@@ -1,12 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{x:Static local:App.CorFundo}"
+             xmlns:local="clr-namespace:Locabem.Xamarin" 
              x:Class="Locabem.Xamarin.ListagemBens">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Listagem"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+  <ListView x:Name="MyListView"
+            CachingStrategy="RecycleElement"
+            ItemTapped="Handle_ItemTapped">
+        <!--ItemsSource="{Binding Items}"
+      
+            -->
+
+
+    <!--Built in Cells-->
+        <!-- 
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <TextCell Text="{Binding Descricao}" Detail="{Binding Marca}"/>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+     -->
+
+   <!--Custom View Cells-->
+
+      <!--
+      <ViewCell.ContextActions>
+                        <MenuItem Clicked="OnMore" CommandParameter="{Binding .}" Text="Detalhes" />
+                        <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Excluir" IsDestructive="True" />
+                    </ViewCell.ContextActions>
+      -->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell Appearing="ViewCell_Appearing">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="{Binding Nome}" HorizontalOptions="{x:Static local:App.PosicaoTexto}" FontAttributes="{x:Static local:App.AtributosTexto}"  />
+                            <Label Text="{Binding Marca}" HorizontalOptions="{x:Static local:App.PosicaoTexto}" FontAttributes="{x:Static local:App.AtributosTexto}" />
+
+                        </StackLayout>
+                        <Label Text="{Binding TextoAlugado}" HorizontalOptions="End" FontAttributes="{x:Static local:App.AtributosTexto}" TextColor="{Binding IsAlugado, Converter={local:CorBoolConverter}}" />
+
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

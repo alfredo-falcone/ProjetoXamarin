@@ -11,20 +11,20 @@ using Xamarin.Forms.Xaml;
 namespace Locabem.Xamarin
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RegistroAluguelBem : ContentPage
+	public partial class RegistroDevolucaoBem : ContentPage
 	{
         private List<Bem> bens;
-		public RegistroAluguelBem ()
+        public RegistroDevolucaoBem ()
 		{
-			InitializeComponent ();
-            bens = App.Banco.Table<Bem>().Where(b => !b.IsAlugado).OrderBy(a => a.Nome).ToList();
+            InitializeComponent();
+            bens = App.Banco.Table<Bem>().Where(b => b.IsAlugado).OrderBy(a => a.Nome).ToList();
             cmbBens.ItemsSource = bens;//.Select(b => b.Nome).ToList();
 
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            bens[cmbBens.SelectedIndex].IsAlugado = true;
+            bens[cmbBens.SelectedIndex].IsAlugado = false;
             App.Banco.Update(bens[cmbBens.SelectedIndex]);
             ((MasterDetailPage)App.Current.MainPage).Detail = new NavigationPage(new ListagemBens());
 
